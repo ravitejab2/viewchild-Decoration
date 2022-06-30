@@ -1,0 +1,9 @@
+<p>number-list works!</p>
+<hr>
+<div *ngFor= "let n of numList">
+    <app-number [number]= "n" [selectAll]= "selectAll" [selectOdd]= "selectOdd"></app-number><br>
+</div><br>   
+
+    <button (click)= "this.selectAll=!this.selectAll">Select All</button>
+
+    <button (click)= "this.selectOdd=!this.selectOdd">Select all odd numbers</button>
