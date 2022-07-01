@@ -10,9 +10,8 @@ export class NumberComponent implements OnInit {
   @Input() 
   number!:number;
   @Input()
-  selectAll!:boolean;
-  @Input()
-  selectOdd!:boolean;
+  selectbtn!:string;
+  
   selectedcheckBox:boolean=false;
   constructor() { }
   
@@ -20,18 +19,16 @@ export class NumberComponent implements OnInit {
   
   }
   ngOnChanges(){
-
-    if(this.selectAll){
+    if(this.selectbtn=='selectAll'){
       this.selectedcheckBox=true;
     }
-    if(this.selectOdd){
-      if(this.number%2==1){
-        this.selectedcheckBox=true;
-      }
-      else{
-        this.selectedcheckBox=false;
-      }
+    if(this.selectbtn=='selectOdd'){
+      if(this.number %2==1)
+       this.selectedcheckBox=true;
+      else 
+      this.selectedcheckBox=false;
     }
+    
   }
 
   
