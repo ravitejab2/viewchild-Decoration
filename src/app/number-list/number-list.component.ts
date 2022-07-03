@@ -21,8 +21,21 @@ export class NumberListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  selectedbtn(value:string){
-    this.selectbtn=value;
+  @ViewChildren(NumberComponent) num!: QueryList<NumberComponent>;
+
+
+  selectAll(){
+    this.num.forEach(res=>{
+      res.selectedcheckBox = true;
+    });
   }
+
+  selectOddNumbers(){
+    this.num.forEach(res=>{
+      if(res.number % 2 !== 0) res.selectedcheckBox = true;
+      else res.selectedcheckBox = false;
+    });
+  }
+
 
 }
